@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Assignments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80"%3E%3Cpath fill="%23e0eafc" fill-opacity="0.1" d="M40 0a40 40 0 1 0 0 80 40 40 0 0 0 0-80zm0 72a32 32 0 1 1 0-64 32 32 0 0 1 0 64z"/%3E%3C/svg%3E');
+            opacity: 0.3;
+            z-index: -1;
+        }
+        .navbar {
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+        }
+        .nav-link:hover {
+            color: #e74c3c !important;
+        }
+        .container {
+            padding-top: 80px;
+            padding-bottom: 60px;
+        }
+        h1 {
+            font-weight: 700;
+            color: #1e3c72;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        .card {
+            border: none;
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+        .card-header {
+            background: linear-gradient(90deg, #2a5298, #1e3c72);
+            color: white;
+            padding: 15px;
+            border-radius: 20px 20px 0 0;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+        }
+        .card-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+        .card-body {
+            padding: 25px;
+            text-align: center;
+        }
+        .card-title {
+            font-size: 1.1rem;
+            color: #34495e;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .card-text {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        .btn-custom {
+            background: #e74c3c;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+        }
+        .btn-custom:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(231, 76, 60, 0.5);
+        }
+        .icon {
+            margin-right: 10px;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #34495e;
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.8);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Project Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center">Project Assignments</h1>
+        <div class="row" id="project-list">
+            <!-- Projects will be inserted here dynamically -->
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2025 Akram | Designed with ❤️ for a Professional Experience
+    </div>
+
+    <script>
+        const projects = [
+            { id: 1, name: "Chinthakayala Nagabhushanam", project: "Personal Portfolio Website", file: "Chinthakayala_Nagabhushanam.pdf" },
+            { id: 2, name: "K Mohan Krishna", project: "Simple Blog System", file: "K_Mohan_Krishna.pdf" },
+            { id: 3, name: "Boya Hemalatha", project: "To-Do List App", file: "Boya_Hemalatha.pdf" },
+            { id: 4, name: "Dheeraj Chandra", project: "Contact Form with Database", file: "Dheeraj_Chandra.pdf" },
+            { id: 5, name: "Vaddi Sai Padmavathi", project: "Image Gallery", file: "Vaddi_Sai_Padmavathi.pdf" },
+            { id: 6, name: "Kamparajula Lokesh", project: "Event Registration System", file: "Kamparajula_Lokesh.pdf" },
+            { id: 7, name: "Masool Shafeequr Rahaman", project: "Online Quiz System", file: "Masool_Shafeequr_Rahaman.pdf" },
+            { id: 8, name: "Ramasai Naga Kurapati", project: "Weather App (API Integration)", file: "Ramasai_Naga_Kurapati.pdf" },
+            { id: 9, name: "Tamveel Khan", project: "Basic E-Commerce Product Catalog", file: "Tamveel_Khan.pdf" },
+            { id: 10, name: "Pravallika Chukkaluru", project: "Simple Poll System", file: "Pravallika_Chukkaluru.pdf" },
+            { id: 11, name: "Bavirisetti Mithin Teja", project: "User Authentication System", file: "Bavirisetti_Mithin_Teja.pdf" },
+            { id: 12, name: "Poodi Ramu", project: "Job Portal", file: "Poodi_Ramu.pdf" },
+            { id: 13, name: "Meddisetty Arjun Kumar", project: "Online Examination System", file: "Meddisetty_Arjun_Kumar.pdf" },
+            { id: 14, name: "Chintala Jnaneswari", project: "Inventory Management System", file: "Chintala_Jnaneswari.pdf" },
+            { id: 15, name: "Kunche Prasanth", project: "Expense Tracker", file: "Kunche_Prasanth.pdf" },
+            { id: 16, name: "Padala Sai Venkat", project: "Restaurant Order System", file: "Padala_Sai_Venkat.pdf" },
+            { id: 17, name: "Kasapu Prem Sagar", project: "Real Estate Listing Website", file: "Kasapu_Prem_Sagar.pdf" },
+            { id: 18, name: "Kanithi Sai Aravind", project: "Discussion Forum", file: "Kanithi_Sai_Aravind.pdf" },
+            { id: 19, name: "Guttula Leela Venkata Anvesh", project: "News Aggregator", file: "Guttula_Leela_Venkata_Anvesh.pdf" },
+            { id: 20, name: "Vanka Niranjan", project: "Car Rental System", file: "Vanka_Niranjan.pdf" },
+            { id: 21, name: "Shaik Fouziya", project: "Online Voting System", file: "Shaik_Fouziya.pdf" },
+            { id: 22, name: "D.Swathi", project: "Course Enrollment System", file: "D_Swathi.pdf" },
+            { id: 23, name: "Nandini Datta", project: "Hotel Booking System", file: "Nandini_Datta.pdf" },
+            { id: 24, name: "Pallavi Ediga", project: "Blood Donation Management System", file: "Pallavi_Ediga.pdf" },
+            { id: 25, name: "Konala Akhil Babu", project: "E-Learning Platform", file: "Konala_Akhil_Babu.pdf" },
+            { id: 26, name: "Farook Baba Patan", project: "Customer Feedback System", file: "Farook_Baba_Patan.pdf" },
+            { id: 27, name: "Komiri Akhila", project: "Multi-User Chat Application", file: "Komiri_Akhila.pdf" },
+            { id: 28, name: "Varadi Hari Prasad", project: "Recipe Sharing Website", file: "Varadi_Hari_Prasad.pdf" },
+            { id: 29, name: "Koyyana Manoj Yadav", project: "Music Streaming Website", file: "Koyyana_Manoj_Yadav.pdf" },
+            { id: 30, name: "Mylarapu Nallappa Gari Saisree", project: "Vehicle Service Management System", file: "Mylarapu_Nallappa_Gari_Saisree.pdf" },
+            { id: 31, name: "Tonduri Durga Manikanta", project: "Online Appointment Scheduling System", file: "Tonduri_Durga_Manikanta.pdf" },
+            { id: 32, name: "N.Amulya", project: "Document Management System", file: "N_Amulya.pdf" },
+            { id: 33, name: "Prabhu Deva", project: "Employee Leave Management System", file: "Prabhu_Deva.pdf" },
+            { id: 34, name: "Manchala Deepika", project: "Gym Membership System", file: "Manchala_Deepika.pdf" },
+            { id: 35, name: "Pratibha Pattapu", project: "Lost and Found Management System", file: "Pratibha_Pattapu.pdf" },
+            { id: 36, name: "Lakshmi Divya Guthula", project: "Pet Adoption Website", file: "Lakshmi_Divya_Guthula.pdf" },
+            { id: 37, name: "Dangeti Varalakshmi", project: "College Admission Portal", file: "Dangeti_Varalakshmi.pdf" },
+            { id: 38, name: "Durga Lakshmi Sagar Bomburi", project: "File Sharing System", file: "Durga_Lakshmi_Sagar_Bomburi.pdf" },
+            { id: 39, name: "K.M.Teiavathamma", project: "Daily Journal Web App", file: "K_M_Teiavathamma.pdf" },
+            { id: 40, name: "Senapathi Madhukumar", project: "Freelance Job Marketplace", file: "Senapathi_Madhukumar.pdf" },
+            { id: 41, name: "Emadabathina Teja", project: "Personal Portfolio Website", file: "Emadabathina_Teja.pdf" },
+            { id: 42, name: "Allu Manikanta", project: "Simple Blog System", file: "Allu_Manikanta.pdf" },
+            { id: 43, name: "Venkata Satya Rupesh", project: "To-Do List App", file: "Venkata_Satya_Rupesh.pdf" },
+            { id: 44, name: "Kambhampati Manohar", project: "Contact Form with Database", file: "Kambhampati_Manohar.pdf" },
+            { id: 45, name: "Galeti Manikanta", project: "Image Gallery", file: "Galeti_Manikanta.pdf" },
+            { id: 46, name: "Malli Lakshmi Devi", project: "Event Registration System", file: "Malli_Lakshmi_Devi.pdf" },
+            { id: 47, name: "Mallangi Gayathri", project: "Online Quiz System", file: "Mallangi_Gayathri.pdf" },
+            { id: 48, name: "Reddi Vivek", project: "Weather App (API Integration)", file: "Reddi_Vivek.pdf" },
+            { id: 49, name: "Satyavada Sachit Venkata Narayana", project: "Basic E-Commerce Product Catalog", file: "Satyavada_Sachit_Venkata_Narayana.pdf" },
+            { id: 50, name: "Muddada Tharun Kumar", project: "Simple Poll System", file: "Muddada_Tharun_Kumar.pdf" },
+            { id: 51, name: "Gangireddy Pavan Kumar Reddy", project: "User Authentication System", file: "Gangireddy_Pavan_Kumar_Reddy.pdf" },
+            { id: 52, name: "Tangella Rambabu", project: "Job Portal", file: "Tangella_Rambabu.pdf" },
+            { id: 53, name: "Simma Yarrannaidu", project: "Online Examination System", file: "Simma_Yarrannaidu.pdf" },
+            { id: 54, name: "Dongari Anantha Srinivas", project: "Inventory Management System", file: "Dongari_Anantha_Srinivas.pdf" },
+            { id: 55, name: "Koppolu Charles Antony", project: "Expense Tracker", file: "Koppolu_Charles_Antony.pdf" },
+            { id: 56, name: "Nakka Srinivas Reddy", project: "Restaurant Order System", file: "Nakka_Srinivas_Reddy.pdf" },
+            { id: 57, name: "M.Manideep", project: "Real Estate Listing Website", file: "M_Manideep.pdf" },
+            { id: 58, name: "Aman Kumar", project: "Discussion Forum", file: "Aman_Kumar.pdf" },
+            { id: 59, name: "Prudhivi Madhavi", project: "News Aggregator", file: "Prudhivi_Madhavi.pdf" },
+            { id: 60, name: "Kuppadapu Bhanu Harshitha", project: "Car Rental System", file: "Kuppadapu_Bhanu_Harshitha.pdf" }
+        ];
+
+        const projectList = document.getElementById("project-list");
+
+        projects.forEach(({ id, name, project, file }) => {
+            const projectCard = `
+                <div class="col-md-4 col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="card-header">${name}</div>
+                        <div class="card-body">
+                            <h5 class="card-title">ID: ${id}</h5>
+                            <p class="card-text"><strong>Project:</strong> ${project}</p>
+                            <a href="${file}" class="btn btn-custom" download><i class="fas fa-download icon"></i>Download</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            projectList.innerHTML += projectCard;
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
